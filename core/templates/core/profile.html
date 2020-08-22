@@ -1,0 +1,34 @@
+
+{% extends 'core/base.html' %}
+{% block content %}
+
+
+<div class="container mt-5">
+   <div class="btn float-right">
+    <a href="{% url 'logout' %}" class="btn btn-danger {{logout}}">Logout</a>
+   </div> 
+  <h1 class="text-warning mb-5 border-bottom">UserName: {{ name }}</h1>
+  
+  
+  <div class="row text-white mb-5">    
+    <p class="mx-auto mb-5">
+        {% if messages %}
+            {% for message in messages %}
+             <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+            {% endfor %}
+           {% endif %}
+           
+    </p>
+    <div class="col-sm-9 mb-5">
+      
+        <div class="form-row">
+          <div class="form-group col-md-6">
+          
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+

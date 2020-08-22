@@ -1,0 +1,35 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+ {% block content %}  
+ <div class="col-sm-9 mb-5">
+<form action="" method="post" novalidate>
+ {% csrf_token %}
+  {% if form.non_field_errors %}
+   {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>
+   {% endfor %}
+  {% endif %}
+ {% for fm in form %}
+ 
+    <div class=" col-auto align-items-center">           
+        <div class="col-size mr-mt-sm-2">
+            <spam class="text-primary">{{ fm.label_tag }}</spam>  
+              {{ fm }}
+               {{fm.errors|striptags}}     
+        </div>
+    </div> 
+      
+ {% endfor %}
+
+ <input type="submit" value="Submit" class="btn btn-outline-info my-3">
+ <a href="{% url 'login' %}" class="btn btn-outline-info my-3">Login</a>
+</form>
+{% if messages %}
+ {% for message in messages %}
+  <small {% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </small>
+ {% endfor %}
+ {% endif %}
+ 
+ {% endblock content  %}
+</div>  
