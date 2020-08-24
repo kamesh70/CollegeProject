@@ -2,10 +2,14 @@
 .st-font {
   font-family: "Satisfy";
 }
+body{
+  background-color: ivory;   
+}
 
 html,
 body {
   height: 100%;
+        
 }
 
 .container-fluid {

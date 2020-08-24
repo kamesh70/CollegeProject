@@ -1,7 +1,8 @@
 
 {% extends 'core/base.html' %}
 {% load static %}
- {% block content %}  
+ {% block content %} 
+ 
  <div class="col-sm-9 mb-5">
 <form action="" method="post" novalidate>
  {% csrf_token %}
@@ -10,26 +11,30 @@
     <p class="er">{{error}}</p>
    {% endfor %}
   {% endif %}
- {% for fm in form %}
- 
-    <div class=" col-auto align-items-center">           
-        <div class="col-size mr-mt-sm-2">
-            <spam class="text-primary">{{ fm.label_tag }}</spam>  
-              {{ fm }}
-               {{fm.errors|striptags}}     
-        </div>
-    </div> 
-      
- {% endfor %}
 
- <input type="submit" value="Submit" class="btn btn-outline-info my-3">
- <a href="{% url 'login' %}" class="btn btn-outline-info my-3">Login</a>
-</form>
-{% if messages %}
- {% for message in messages %}
-  <small {% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </small>
- {% endfor %}
- {% endif %}
+<div class="container col-sm-10 mt-5 text-sucess">
+                
+       {% for fm in form %}
+
+           <div class="text-white ">      
+                     <p class="mb-auto mr-5">{{ fm.label_tag }}
+                    <span class="ml-5 mb-auto mr-5 "> {{ fm}}</span>
+                   <span class="text-right ml-2" >{{fm.errors|striptags}}</span>  </p> 
+                </div>      
+            
+        {% endfor %}
  
- {% endblock content  %}
+
+    <input type="submit" value="Submit" class="btn btn-outline-info my-3">
+     <a href="{% url 'login' %}" class="btn btn-outline-info my-3">Login</a>
+</form>
+            
+        {% if messages %}
+        {% for message in messages %}
+        <small {% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </small>
+        {% endfor %}
+        {% endif %}
+        
+        {% endblock content  %}
+ </div>
 </div>  

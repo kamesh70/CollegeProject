@@ -3,21 +3,42 @@
   {% load static %}
 {% block content %}
 
- <form action="" method="post" novalidate>
+ <form action="" method="POST" novalidate>
   {% csrf_token %}
-  {% if form.non_field_errors %}
+ <!-- {% if form.non_field_errors %}
    {% for error in form.non_field_errors %}
-    <p class="er">{{error}}</p>
+    <p class="er">{{error}}</p>   
+
    {% endfor %}
-  {% endif %}
-  {% for fm in form %}
-  <div class="form-row align-items-center">
-    <div col-sm-3 my-3>
-    {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
-  </div>
-  </div>
-  {% endfor %}
-  <input type="submit" value="Login">
- </form>
-  <a href="{% url 'signup' %}">Signup</a>
+  {% endif %} -->
+  
+  <div class="container mt-5">
+    
+     
+         
+     <!--<spam class="text-primary">  {{fm.label_tag}}</spam>
+     {{fm}}  {{fm.errors|striptags}}<br> -->
+      <h2>Login</h2>
+
+    <p class="text-color-red">{{  form.non_field_errors }}</p>
+    <div class="fieldWrapper">
+        {{ form.username.errors }}
+        <label for="{{ form.username.id_for_label }}">Username:</label>
+        {{ form.username }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.password.errors }}
+        <label for="{{ form.password.id_for_label }}">Password:</label>
+        {{ form.password }}
+    </div>
+    <button class="btn btn-primary" type="submit" >Login</button>
+
+</form>
+      
+  
+
+ 
+  <a class=" btn btn-primary " href="{% url 'signup' %}">Signup</a>
+
+</div>
 {%  endblock content %}

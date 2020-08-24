@@ -2,7 +2,7 @@
 <div class="border-right border-warning h-100">
  <div class="text-center">
   <img src="{% static 'core/images/pic2.jpg' %}" alt="ProfilePic" class="img-fluid rounded-circle mt-5" width="100px" heght="100px">
-  <h3 class="text-white mt-3 st-font">{{ name }}</h3>
+  <h3 class="text-success mt-3 st-font">{{ name|default:'Modern college' }}</h3>
  </div>
  <hr class="border-light">
  <nav class="nav flex-column text-center">
